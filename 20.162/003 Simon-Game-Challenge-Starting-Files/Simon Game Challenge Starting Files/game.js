@@ -65,5 +65,18 @@ function checkAnswer(currentLevel){
     }else{
         console.log("fail");
         playSound("wrong");
+        $("body").addClass("game-over")
+        setTimeout(function(){
+            $("body").removeClass("game-over");
+        },200);
+        $("#level-title").text("Game Over, Press Any Key to Restart. Game Pattern: " + gamePattern + " User Pattern: " + userClickedPattern);
+        startOver();
     }
+}
+
+function startOver(){
+    userClickedPattern = [];
+    gamePattern = [];
+    gameStarted = false;
+    level = 0;
 }
